@@ -33,16 +33,16 @@ def format_date_time(date_time):
 def create_image_dataframe(folder_path):
     image_data = []
     for filename in os.listdir(folder_path):
-        if filename.lower().endswith('.jpg'):
-            file_path = os.path.join(folder_path, filename)
-            date_time = get_image_date_time(file_path)
-            if date_time:
-                formatted_date_time = format_date_time(date_time)
-                if formatted_date_time:
-                    image_data.append({'Filename': filename, 'Date_Time': formatted_date_time})
+        file_path = os.path.join(folder_path, filename)
+        date_time = get_image_date_time(file_path)
+        if date_time:
+            formatted_date_time = format_date_time(date_time)
+            if formatted_date_time:
+                image_data.append({'Filename': filename, 'Date_Time': formatted_date_time})
 
     df = pd.DataFrame(image_data)
     return df
+
 
 
 # extracting timestamps and saving to csv
