@@ -39,6 +39,8 @@ def create_image_dataframe(folder_path):
             formatted_date_time = format_date_time(date_time)
             if formatted_date_time:
                 image_data.append({'Filename': filename, 'Date_Time': formatted_date_time})
+        else:
+            image_data.append({'Filename': filename, 'Date_Time': 'Not found'})
 
     df = pd.DataFrame(image_data)
     return df
